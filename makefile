@@ -8,6 +8,7 @@ gcs_bucket = bindiego
 job := bindiego-pubsub
 pubsub_topic := dingo-topic
 pubsub_subscription := dingo-topic-sub
+worker_utilization_hint := 0.9
 
 lo:
 	@mvn compile exec:java -Dexec.mainClass=bindiego.BindiegoPubsub
@@ -31,6 +32,7 @@ df:
 --experiments=use_runner_v2 \
 --defaultWorkerLogLevel=DEBUG \
 --jobName=$(job) \
+--dataflowServiceOptions=$(worker_utilization_hint) \
 --pubsubTopic=projects/$(gcp_project)/topics/$(pubsub_topic) \
 --subscription=projects/$(gcp_project)/subscriptions/$(pubsub_subscription)"
 
@@ -53,6 +55,7 @@ up:
 --experiments=use_runner_v2 \
 --defaultWorkerLogLevel=DEBUG \
 --jobName=$(job) \
+--dataflowServiceOptions=$(worker_utilization_hint) \
 --update \
 --pubsubTopic=projects/$(gcp_project)/topics/$(pubsub_topic) \
 --subscription=projects/$(gcp_project)/subscriptions/$(pubsub_subscription)"
