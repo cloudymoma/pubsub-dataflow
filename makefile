@@ -21,6 +21,7 @@ df:
 --streaming=true \
 --enableStreamingEngine \
 --autoscalingAlgorithm=THROUGHPUT_BASED \
+--region=$(region) \
 --maxNumWorkers=20 \
 --workerMachineType=$(workerType) \
 --diskSizeGb=64 \
@@ -44,6 +45,7 @@ up:
 --streaming=true \
 --enableStreamingEngine \
 --autoscalingAlgorithm=THROUGHPUT_BASED \
+--region=$(region) \
 --maxNumWorkers=20 \
 --workerMachineType=$(workerType) \
 --diskSizeGb=64 \

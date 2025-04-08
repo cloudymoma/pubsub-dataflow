@@ -21,7 +21,7 @@ import org.slf4j.LoggerFactory;
 
 public class BindiegoPubsub {
   private static final Logger LOG = LoggerFactory.getLogger(BindiegoPubsub.class);
-  public static final String WORKER_NETWORK = "https://www.googleapis.com/compute/v1/projects/du-hast-mich/regions/us-central1/subnetworks/default";
+  // public static final String WORKER_NETWORK = "https://www.googleapis.com/compute/v1/projects/du-hast-mich/regions/us-central1/subnetworks/default";
 
   /**
    * Custom PipelineOptions for Pub/Sub.
@@ -45,11 +45,8 @@ public class BindiegoPubsub {
     PubsubOptions options = PipelineOptionsFactory.fromArgs(args)
         .withValidation()
         .as(PubsubOptions.class);
-    options.setStreaming(true);
-    options.setNetwork("default");
-    options.setSubnetwork(WORKER_NETWORK);
-    options.setProject("du-hast-mich");
-    options.setRegion("us-central1");
+    // options.setNetwork("default");
+    // options.setSubnetwork(WORKER_NETWORK);
     Pipeline p = Pipeline.create(options);
 
     // 1. Generate messages every second.
